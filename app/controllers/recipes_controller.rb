@@ -48,10 +48,4 @@ class RecipesController < ApplicationController
       ]
     )
   end
-
-  def delete_empty_ingredients
-    self.ingredients = self.ingredients.select do |ingredient|
-      !ingredient.name.empty?
-    end
-  end
 end
