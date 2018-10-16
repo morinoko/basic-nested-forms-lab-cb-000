@@ -15,7 +15,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     delete_empty_ingredients
-    
+
     if @recipe.valid?
       @recipe.save
       redirect_to recipe_path(@recipe)
