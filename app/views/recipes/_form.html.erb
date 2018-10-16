@@ -1,3 +1,15 @@
 <%= form_for @recipe do |f| %>
-  Title: <%= f.text_field :title %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+
+  <p>Ingredients:</p>
+  <%= f.fields_for :ingredients do |ingredient| %>
+    <%= ingredient.label :name %>
+    <%= ingredient.text_field :name, placeholder: "E.g. Flour" %><br>
+
+    <%= ingredient.label :quantity %>
+    <%= ingredient.text_field :quantity, placeholder: "E.g. 1 cup" %><br>
+  <% end %>
+
+  <%= f.submit %>
 <% end %>
